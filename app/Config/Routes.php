@@ -59,4 +59,3 @@ $routes->group('admin', function($routes){
     $routes->get('ulasan', 'Admin::ulasan');
 
 });
-
