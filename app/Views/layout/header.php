@@ -121,19 +121,10 @@
 
     <div class="logo">
         <a href="<?= base_url('/') ?>">
-            🔨 CariTukang
+            RumahKerja
         </a>
     </div>
-
-    <nav>
-        <ul class="nav-menu">
-            <li>
-                <a href="<?= base_url('tentang-kami') ?>">
-                    Tentang Kami
-                </a>
-            </li>
-        </ul>
-    </nav>
+    
 
     <div class="auth-button">
         <a href="<?= base_url('login') ?>" class="btn-login">

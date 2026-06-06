@@ -168,7 +168,7 @@
     </div>
 
     <div class="hero-right">
-        <img src="<?= base_url('assets/images/tukang.jpg') ?>" alt="Tukang">
+        <img src="<?= base_url('assets/images/orang.jpg') ?>" alt="Tukang">
     </div>
 
 </section>
