@@ -1,179 +1,340 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Register - Rumah_Kerja</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Rumah Kerja</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
-<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-/* RESET */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at bottom right, #f0d2b5 0, transparent 34%),
+                linear-gradient(135deg, #fffaf5, #f5eee8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
 
-/* BODY */
-body{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#faf7f2;
-}
+        .auth-wrapper {
+            width: 100%;
+            max-width: 1080px;
+            min-height: 660px;
+            background: rgba(255, 255, 255, 0.84);
+            backdrop-filter: blur(18px);
+            border-radius: 34px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            box-shadow: 0 35px 80px rgba(73, 45, 24, 0.18);
+        }
 
-/* CONTAINER */
-.container{
-    width:950px;
-    height:580px;
-    display:flex;
-    background:#fff;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 20px 40px rgba(0,0,0,0.1);
-}
+        .auth-left {
+            background: linear-gradient(145deg, #a8774f, #2c1a10);
+            color: #fff;
+            padding: 60px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
 
-/* LEFT */
-.left{
-    flex:1;
-    background:linear-gradient(135deg,#8B5E3C,#A67C52);
-    color:white;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding:40px;
-    text-align:center;
-}
+        .auth-left::before {
+            content: "";
+            position: absolute;
+            width: 330px;
+            height: 330px;
+            background: rgba(255,255,255,0.13);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+        }
 
-.left h1{
-    font-size:32px;
-    margin-bottom:10px;
-}
+        .auth-left::after {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            background: rgba(255,255,255,0.10);
+            border-radius: 50%;
+            bottom: -80px;
+            right: -70px;
+        }
 
-.left p{
-    font-size:14px;
-    opacity:0.9;
-    line-height:1.6;
-}
+        .brand {
+            position: relative;
+            z-index: 2;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
 
-/* RIGHT */
-.right{
-    flex:1;
-    padding:40px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
+        .hero-text {
+            position: relative;
+            z-index: 2;
+        }
 
-.right h2{
-    font-size:26px;
-    color:#3f2d20;
-    margin-bottom:20px;
-}
+        .hero-text span {
+            display: inline-block;
+            background: rgba(255,255,255,0.16);
+            border: 1px solid rgba(255,255,255,0.24);
+            padding: 9px 16px;
+            border-radius: 999px;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            margin-bottom: 22px;
+            text-transform: uppercase;
+        }
 
-/* INPUT */
-input{
-    width:100%;
-    padding:13px;
-    margin-bottom:12px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    outline:none;
-    transition:0.3s;
-}
+        .hero-text h1 {
+            font-size: 46px;
+            line-height: 1.08;
+            letter-spacing: -2px;
+            margin-bottom: 18px;
+        }
 
-input:focus{
-    border-color:#A67C52;
-}
+        .hero-text p {
+            color: rgba(255,255,255,0.82);
+            line-height: 1.8;
+            font-size: 15px;
+            max-width: 420px;
+        }
 
-/* BUTTON */
-button{
-    width:100%;
-    padding:14px;
-    background:#A67C52;
-    border:none;
-    color:white;
-    border-radius:10px;
-    font-weight:600;
-    cursor:pointer;
-    transition:0.3s;
-}
+        .auth-note {
+            position: relative;
+            z-index: 2;
+            font-size: 13px;
+            color: rgba(255,255,255,0.72);
+        }
 
-button:hover{
-    background:#8B5E3C;
-}
+        .auth-right {
+            padding: 56px 62px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-/* LINK */
-a{
-    color:#A67C52;
-    text-decoration:none;
-    font-size:13px;
-}
+        .form-header {
+            margin-bottom: 28px;
+        }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-    .container{
-        flex-direction:column;
-        width:90%;
-        height:auto;
-    }
+        .form-header h2 {
+            font-size: 38px;
+            color: #24170f;
+            letter-spacing: -1.5px;
+            margin-bottom: 8px;
+        }
 
-    .left{
-        padding:30px;
-    }
+        .form-header p {
+            color: #8c7b70;
+            font-size: 14px;
+        }
 
-    .right{
-        padding:30px;
-    }
-}
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
 
-</style>
+        .input-group {
+            margin-bottom: 16px;
+        }
 
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #4a3528;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            height: 54px;
+            border: 1.5px solid #eaded4;
+            border-radius: 16px;
+            padding: 0 18px;
+            font-size: 14px;
+            color: #2b1b12;
+            outline: none;
+            background: #fffdfb;
+            transition: 0.25s ease;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            border-color: #a8774f;
+            box-shadow: 0 0 0 5px rgba(168,119,79,0.13);
+        }
+
+        .terms {
+            margin: 2px 0 22px;
+            font-size: 13px;
+            color: #75665e;
+            line-height: 1.6;
+        }
+
+        .terms input {
+            margin-right: 7px;
+        }
+
+        .terms a {
+            color: #6b4228;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .btn-auth {
+            width: 100%;
+            height: 56px;
+            border: none;
+            border-radius: 17px;
+            background: linear-gradient(135deg, #2c1a10, #a8774f);
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 18px 30px rgba(94, 56, 28, 0.23);
+            transition: 0.25s ease;
+        }
+
+        .btn-auth:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 24px 38px rgba(94, 56, 28, 0.30);
+        }
+
+        .switch-link {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 14px;
+            color: #7b6d64;
+        }
+
+        .switch-link a {
+            color: #6b4228;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        @media (max-width: 900px) {
+            .auth-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .auth-left {
+                min-height: 330px;
+                padding: 38px;
+            }
+
+            .hero-text h1 {
+                font-size: 35px;
+            }
+
+            .auth-right {
+                padding: 42px 30px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .input-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            body {
+                padding: 18px;
+            }
+        }
+    </style>
 </head>
+
 <body>
+    <main class="auth-wrapper">
+        <section class="auth-left">
+            <div class="brand">RumahKerja</div>
 
-<div class="container">
+            <div class="hero-text">
+                <span>Mulai Sekarang</span>
+                <h1>Buat akun dan temukan bantuan rumah terbaik.</h1>
+                <p>Daftar untuk mencari pekerja rumah, memesan jasa, menyimpan profil favorit, dan mengelola kebutuhan rumah dengan praktis.</p>
+            </div>
 
-    <!-- LEFT SIDE -->
-    <div class="left">
-        <h1>Join Rumah_Kerja</h1>
-        <p>
-            Daftarkan akun Anda sekarang dan temukan pekerja rumah terpercaya dengan cepat dan mudah.
-        </p>
-    </div>
+            <div class="auth-note">Aman, cepat, dan terpercaya untuk kebutuhan rumahmu.</div>
+        </section>
 
-    <!-- RIGHT SIDE -->
-    <div class="right">
+        <section class="auth-right">
+            <div class="form-header">
+                <h2>Daftar</h2>
+                <p>Buat akun baru. Tenang, cuma sebentar. Anti ribet club.</p>
+            </div>
 
-        <h2>Register</h2>
+            <form action="/register" method="post">
+                <?= csrf_field() ?>
 
-        <form action="<?= base_url('register') ?>" method="post">
+                <div class="input-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" name="nama" placeholder="Masukkan nama lengkap" required>
+                </div>
 
-            <input type="text" name="nama" placeholder="Nama Lengkap">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="contoh@email.com" required>
+                    </div>
 
-            <input type="email" name="email" placeholder="Email">
+                    <div class="input-group">
+                        <label>No. HP</label>
+                        <input type="text" name="no_hp" placeholder="08xxxxxxxxxx" required>
+                    </div>
+                </div>
 
-            <input type="password" name="password" placeholder="Password">
+                <div class="input-group">
+                    <label>Daftar Sebagai</label>
+                    <select name="role" required>
+                        <option value="">Pilih role</option>
+                        <option value="user">Pencari Jasa</option>
+                        <option value="pekerja">Pekerja/Tukang</option>
+                    </select>
+                </div>
 
-            <input type="password" name="confirm_password" placeholder="Konfirmasi Password">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" name="password" placeholder="Buat password" required>
+                    </div>
 
-            <button type="submit">Daftar</button>
+                    <div class="input-group">
+                        <label>Konfirmasi</label>
+                        <input type="password" name="password_confirm" placeholder="Ulangi password" required>
+                    </div>
+                </div>
 
-        </form>
+                <div class="terms">
+                    <label>
+                        <input type="checkbox" required>
+                        Saya setuju dengan <a href="#">Syarat & Ketentuan</a>.
+                    </label>
+                </div>
 
-        <p style="margin-top:12px;">
-            Sudah punya akun?
-            <a href="<?= base_url('login') ?>">Login sekarang</a>
-        </p>
+                <button type="submit" class="btn-auth">Buat Akun</button>
+            </form>
 
-    </div>
-
-</div>
-
+            <div class="switch-link">
+                Sudah punya akun? <a href="/login">Login sekarang</a>
+            </div>
+        </section>
+    </main>
 </body>
 </html>

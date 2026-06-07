@@ -8,9 +8,4 @@ class Home extends BaseController
     {
         return view('awalan');
     }
-
-    public function tentangKami()
-    {
-        return view('tentang_kami');
-    }
 }

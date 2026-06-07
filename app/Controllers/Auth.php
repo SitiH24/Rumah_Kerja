@@ -6,66 +6,73 @@ use App\Models\UserModel;
 
 class Auth extends BaseController
 {
-    protected $userModel;
-
-    public function __construct()
-    {
-        $this->userModel = new UserModel();
-    }
-
     public function login()
     {
-        return view('auth/login');
-    }
-
-    public function prosesLogin()
-    {
-        $email = $this->request->getPost('email');
-        $password = $this->request->getPost('password');
-
-        $user = $this->userModel->where('email', $email)->first();
-
-        if ($user && password_verify($password, $user['password'])) {
-
-            session()->set([
-                'id'    => $user['id'],
-                'nama'  => $user['nama'],
-                'email' => $user['email'],
-                'role'  => $user['role'],
-                'login' => true
-            ]);
-
-            return redirect()->to('/dashboard');
-        }
-
-        return redirect()->back()->with('error', 'Email atau Password salah');
+        return view('Auth/login');
     }
 
     public function register()
     {
-        return view('auth/register');
+        return view('Auth/register');
     }
 
-    public function saveRegister()
+    public function prosesLogin()
     {
-        $this->userModel->save([
-            'nama'     => $this->request->getPost('nama'),
-            'email'    => $this->request->getPost('email'),
-            'password' => password_hash(
-                $this->request->getPost('password'),
-                PASSWORD_DEFAULT
-            ),
-            'no_hp' => $this->request->getPost('no_hp'),
-            'role'  => $this->request->getPost('role')
+        $userModel = new UserModel();
+
+        $email = $this->request->getPost('email');
+        $password = $this->request->getPost('password');
+
+        $user = $userModel->where('email', $email)->first();
+
+        if (!$user) {
+            return redirect()->back()->with('error', 'Email tidak ditemukan');
+        }
+
+        if (!password_verify($password, $user['password'])) {
+            return redirect()->back()->with('error', 'Password salah');
+        }
+
+        session()->set([
+            'user_id'    => $user['id'],
+            'nama'       => $user['nama'],
+            'email'      => $user['email'],
+            'role'       => $user['role'],
+            'isLoggedIn' => true
         ]);
 
-        return redirect()->to('/login');
+        return redirect()->to($user['role'] === 'admin' ? '/admin' : '/user');
+    }
+
+    public function prosesRegister()
+    {
+        $userModel = new UserModel();
+
+        $data = [
+            'nama'     => $this->request->getPost('nama'),
+            'email'    => $this->request->getPost('email'),
+            'password' => password_hash($this->request->getPost('password'), PASSWORD_DEFAULT),
+            'role'     => 'user'
+        ];
+
+        $userModel->insert($data);
+
+        // login otomatis setelah register
+        $user = $userModel->where('email', $data['email'])->first();
+        session()->set([
+            'user_id'    => $user['id'],
+            'nama'       => $user['nama'],
+            'email'      => $user['email'],
+            'role'       => $user['role'],
+            'isLoggedIn' => true
+        ]);
+
+        return redirect()->to('/user');
     }
 
     public function logout()
     {
         session()->destroy();
-
         return redirect()->to('/login');
     }
 }
