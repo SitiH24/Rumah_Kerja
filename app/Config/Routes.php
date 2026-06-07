@@ -6,42 +6,35 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->get('/tentang', 'Home::tentang');
 
-$routes->get('/login', 'Auth::login');
-$routes->post('/login', 'Auth::processLogin');
+$routes->get('/login', 'Login::index');
+$routes->post('/login', 'Login::auth');
+$routes->get('/logout', 'Login::logout');
 
-$routes->get('/register', 'Auth::register');
-$routes->post('/register', 'Auth::processRegister');
+$routes->get('/kategori', 'KategoriJasa::index');
+$routes->get('/kategori/(:num)', 'KategoriJasa::detail/$1');
 
-$routes->get('/logout', 'Auth::logout');
+$routes->get('/pekerja', 'ProfilPekerja::index');
+$routes->get('/pekerja/(:num)', 'ProfilPekerja::detail/$1');
 
-$routes->get('/kategori', 'Kategori::index');
-$routes->get('/kategori/(:num)', 'Kategori::detail/$1');
+$routes->get('/pekerja/profil', 'ProfilPekerja::profil');
+$routes->post('/pekerja/profil/update', 'ProfilPekerja::update');
 
-$routes->get('/pekerja', 'Pekerja::index');
-$routes->get('/pekerja/(:num)', 'Pekerja::detail/$1');
+$routes->get('/cari-pekerja', 'ProfilPekerja::cari');
 
-$routes->get('/pekerja/profil', 'Pekerja::profil');
-$routes->post('/pekerja/profil/update', 'Pekerja::update');
+$routes->get('/pesanan', 'PemesananJasa::index');
 
-$routes->get('/cari-pekerja', 'Pekerja::cari');
+$routes->get('/pesan/(:num)', 'PemesananJasa::create/$1');
+$routes->post('/pesanan/store', 'PemesananJasa::store');
 
-$routes->get('/pesan/(:num)', 'Pesanan::create/$1');
-$routes->post('/pesanan/store', 'Pesanan::store');
+$routes->get('/pesanan/detail/(:num)', 'PemesananJasa::detail/$1');
 
-$routes->get('/pesanan', 'Pesanan::index');
-$routes->get('/pesanan/detail/(:num)', 'Pesanan::detail/$1');
+$routes->get('/pesanan/batal/(:num)', 'PemesananJasa::batal/$1');
 
-$routes->get('/pesanan/batal/(:num)', 'Pesanan::batal/$1');
+$routes->get('/pesanan-masuk', 'PemesananJasa::pesananMasuk');
 
-$routes->get('/dashboard', 'Dashboard::pelanggan');
-$routes->get('/dashboard-pekerja', 'Dashboard::pekerja');
-$routes->get('/admin', 'Admin::dashboard');
-
-$routes->get('/pesanan-masuk', 'Pesanan::pesananMasuk');
-
-$routes->get('/pesanan/terima/(:num)', 'Pesanan::terima/$1');
-$routes->get('/pesanan/tolak/(:num)', 'Pesanan::tolak/$1');
-$routes->get('/pesanan/selesai/(:num)', 'Pesanan::selesai/$1');
+$routes->get('/pesanan/terima/(:num)', 'PemesananJasa::terima/$1');
+$routes->get('/pesanan/tolak/(:num)', 'PemesananJasa::tolak/$1');
+$routes->get('/pesanan/selesai/(:num)', 'PemesananJasa::selesai/$1');
 
 $routes->get('/ulasan/create/(:num)', 'Ulasan::create/$1');
 $routes->post('/ulasan/store', 'Ulasan::store');
