@@ -10,7 +10,7 @@ class Beranda extends BaseController
             return redirect()->to('/login');
         }
 
-        return view('Beranda/user'); // HARUS pakai view(), bukan Views()
+        return view('Beranda/user');
     }
 
     public function admin()
@@ -23,6 +23,28 @@ class Beranda extends BaseController
             return redirect()->to('/user');
         }
 
-        return view('Beranda/admin'); // HARUS pakai view()
+        return view('Beranda/admin');
     }
+
+    public function ulasan()
+    {
+    return view('Beranda/ulasan');
+    }
+
+    
+
+    // Method halaman Tentang Kami
+    public function tentangKami()
+    {
+        return view('Beranda/tentangkami'); // pastikan file berada di app/Views/Beranda/tentangkami.php
+    }
+
+    public function logout()
+{
+    // Hapus session
+    session()->destroy();
+
+    // Redirect ke halaman logout dengan tampilan
+    return view('Beranda/logout');
+}
 }

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beranda User - Rumah_Kerja</title>
+<title>Beranda User - RumahKerja</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -118,53 +118,94 @@ body{
 }
 
 /* CARD PEKERJA */
+/* PEKERJA POPULER */
 .pekerja{
     padding:60px;
+    background:#faf7f2;
 }
 
 .pekerja h2{
-    margin-bottom:20px;
+    margin-bottom:28px;
     color:#3f2d20;
+    font-size:28px;
 }
 
 .card-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    gap:24px;
 }
 
 .card{
     background:#fff;
-    border-radius:15px;
+    border-radius:18px;
     overflow:hidden;
-    box-shadow:0 10px 20px rgba(0,0,0,0.05);
+    box-shadow:0 12px 28px rgba(0,0,0,0.06);
+    transition:0.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-5px);
 }
 
 .card img{
     width:100%;
-    height:200px;
+    height:230px;
     object-fit:cover;
 }
 
 .card-body{
-    padding:15px;
+    padding:20px;
 }
 
 .card-body h3{
     color:#3f2d20;
+    font-size:22px;
+    margin-bottom:6px;
 }
 
 .card-body p{
     color:#6d5c4d;
-    font-size:14px;
-    margin-top:5px;
+    font-size:15px;
+    margin-bottom:6px;
+}
+
+.card-meta{
+    font-size:13px;
+    color:#8B5E3C;
+    margin-top:8px;
+}
+
+.card-price{
+    font-weight:700;
+    color:#3f2d20;
+    margin-top:10px;
 }
 
 .card-body .btn{
-    margin-top:10px;
     display:inline-block;
-    padding:10px 18px;
-    font-size:13px;
+    margin-top:14px;
+    padding:10px 20px;
+    background:#A67C52;
+    color:#fff;
+    border-radius:24px;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+}
+
+.card-body .btn:hover{
+    background:#8B5E3C;
+}
+
+@media(max-width:900px){
+    .card-grid{
+        grid-template-columns:1fr;
+    }
+
+    .pekerja{
+        padding:30px 20px;
+    }
 }
 
 /* RESPONSIVE */
@@ -182,6 +223,8 @@ body{
     .card-grid{
         grid-template-columns:1fr;
     }
+
+    
 }
 
 </style>
@@ -191,11 +234,12 @@ body{
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <div class="logo">🏠 Rumah_Kerja</div>
+    <div class="logo">RumahKerja</div>
     <div>
-        <a href="#">Beranda</a>
-        <a href="#">Pekerja</a>
-        <a href="<?= base_url('login') ?>">Login</a>
+        <a href="<?= base_url('beranda') ?>">Beranda</a>
+        <a href="<?= base_url('ulasan') ?>">Ulasan</a>
+        <a href="<?= base_url('tentang-kami') ?>">Tentang Kami</a>
+        <a href="<?= base_url('logout') ?>">Logout</a>
     </div>
 </div>
 
@@ -205,7 +249,8 @@ body{
     <div class="hero-text">
         <h1>Temukan pekerja rumah terpercaya</h1>
         <p>ART, tukang, babysitter, sopir dan lainnya siap membantu kebutuhan Anda.</p>
-        <a href="#" class="btn">Cari Sekarang</a>
+        <a href="<?= base_url('cari') ?>" class="btn">Cari Sekarang</a>
+        <a href="<?= base_url('pesanan') ?>" class="btn">Lihat Pesanan</a>
     </div>
 
     <div>
@@ -214,22 +259,8 @@ body{
 
 </div>
 
-<!-- KATEGORI -->
-<div class="kategori">
 
-    <h2>Kategori Pekerja</h2>
-
-    <div class="kategori-grid">
-
-        <div class="kategori-box">ART</div>
-        <div class="kategori-box">Tukang</div>
-        <div class="kategori-box">Babysitter</div>
-        <div class="kategori-box">Sopir</div>
-
-    </div>
-
-</div>
-
+<!-- PEKERJA -->
 <!-- PEKERJA -->
 <div class="pekerja">
 
@@ -238,29 +269,46 @@ body{
     <div class="card-grid">
 
         <div class="card">
-            <img src="<?= base_url('assets/images/orang.jpg') ?>">
+            <img src="<?= base_url('assets/images/bangunan.jpeg') ?>">
             <div class="card-body">
                 <h3>Budi</h3>
                 <p>Tukang Bangunan</p>
-                <a href="#" class="btn">Lihat</a>
+                <div class="card-meta">📍 Jakarta Selatan • 5+ Tahun</div>
+                <div class="card-price">Rp200 rb/hari</div>
+                <a href="<?= base_url('cari') ?>" class="btn">Lihat Detail</a>
             </div>
         </div>
 
         <div class="card">
-            <img src="<?= base_url('assets/images/orang.jpg') ?>">
+            <img src="<?= base_url('assets/images/ART.jpeg') ?>">
             <div class="card-body">
-                <h3>Siti</h3>
-                <p>ART</p>
-                <a href="#" class="btn">Lihat</a>
+                <h3>Lala</h3>
+                <p>ART Rumah Tangga</p>
+                <div class="card-meta">📍 Palu • 4+ Tahun</div>
+                <div class="card-price">Rp150 rb/hari</div>
+                <a href="<?= base_url('cari') ?>" class="btn">Lihat Detail</a>
             </div>
         </div>
 
         <div class="card">
-            <img src="<?= base_url('assets/images/orang.jpg') ?>">
+            <img src="<?= base_url('assets/images/sopir.jpeg') ?>">
             <div class="card-body">
                 <h3>Andi</h3>
-                <p>Sopir</p>
-                <a href="#" class="btn">Lihat</a>
+                <p>Sopir Pribadi</p>
+                <div class="card-meta">📍 Makassar • 10+ Tahun</div>
+                <div class="card-price">Rp180 rb/hari</div>
+                <a href="<?= base_url('cari') ?>" class="btn">Lihat Detail</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="<?= base_url('assets/images/babysitter.jpeg') ?>">
+            <div class="card-body">
+                <h3>Ina</h3>
+                <p>Baby Sitter</p>
+                <div class="card-meta">📍 Bandung • 3+ Tahun</div>
+                <div class="card-price">Rp170 rb/hari</div>
+                <a href="<?= base_url('cari') ?>" class="btn">Lihat Detail</a>
             </div>
         </div>
 

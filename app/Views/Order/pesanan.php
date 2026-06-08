@@ -3,26 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pesanan - Rumah_Kerja</title>
+<title>Pesanan Anda - RumahKerja</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* RESET */
-*{
+* {
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family:'Poppins', sans-serif;
 }
 
-body{
-    background:#faf7f2;
+body {
+    background:#fef7ef;
+    color:#3f2d20;
 }
 
 /* NAVBAR */
-.navbar{
+.navbar {
     width:100%;
     background:#fff;
     padding:20px 60px;
@@ -36,159 +35,164 @@ body{
     z-index:1000;
 }
 
-.logo{
+.logo {
     font-size:22px;
     font-weight:700;
     color:#8B5E3C;
 }
 
-.navbar a{
+.navbar a {
     text-decoration:none;
     margin:0 12px;
     color:#5b4636;
     font-weight:500;
 }
 
-/* CONTAINER */
-.container{
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:25px;
-    padding:120px 60px 60px;
-}
-
-/* FORM */
-.form-box{
-    background:#fff;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.05);
-}
-
-.form-box h2{
-    margin-bottom:20px;
-    color:#3f2d20;
-}
-
-input, select, textarea{
-    width:100%;
-    padding:12px;
-    margin-bottom:15px;
-    border:1px solid #ddd;
-    border-radius:10px;
-    outline:none;
-}
-
-textarea{
-    resize:none;
-    height:100px;
-}
-
-button{
-    width:100%;
-    padding:14px;
-    border:none;
-    background:#A67C52;
+.logout-btn {
+    background:#000;
     color:#fff;
-    border-radius:10px;
+    padding:8px 20px;
+    border-radius:25px;
     font-weight:600;
-    cursor:pointer;
+    text-decoration:none;
+    transition:0.3s;
 }
 
-/* SUMMARY */
-.summary{
+.logout-btn:hover {
+    background:#333;
+}
+
+/* CONTAINER */
+.container {
+    padding:120px 60px 60px;
+    max-width:1100px;
+    margin:0 auto;
+}
+
+/* HEADER */
+.header-page h2 {
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.header-page p {
+    color:#6d5c4d;
+    font-size:14px;
+}
+
+/* ORDER CARD */
+.order-card {
     background:#fff;
-    padding:20px;
     border-radius:15px;
     box-shadow:0 10px 20px rgba(0,0,0,0.05);
-    height:fit-content;
+    padding:20px;
+    margin-bottom:20px;
 }
 
-.summary h3{
-    margin-bottom:15px;
-    color:#3f2d20;
+.order-card h3 {
+    font-size:18px;
+    margin-bottom:6px;
 }
 
-.summary-item{
-    margin-bottom:12px;
+.order-card p {
     font-size:14px;
     color:#6d5c4d;
+    margin-bottom:10px;
 }
 
-.price{
-    font-size:20px;
-    font-weight:700;
-    color:#8B5E3C;
-    margin-top:10px;
+.order-card .btn {
+    display:inline-block;
+    padding:10px 18px;
+    border-radius:25px;
+    background:#A67C52;
+    color:#fff;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.order-card .btn:hover {
+    background:#8B5E3C;
+}
+
+/* EMPTY STATE */
+.empty-state {
+    background:#fff;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,0.05);
+    margin-top:30px;
+}
+
+.empty-state h3 {
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.empty-state p {
+    color:#6d5c4d;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.empty-state .btn {
+    padding:12px 28px;
 }
 
 /* RESPONSIVE */
-@media(max-width:900px){
-    .container{
-        grid-template-columns:1fr;
+@media(max-width:768px) {
+    .container {
+        padding:140px 20px 20px;
+    }
+    .navbar {
+        padding:15px 20px;
+    }
+    .header-page h2 {
+        font-size:26px;
+    }
+    .order-card h3 {
+        font-size:16px;
     }
 }
-
 </style>
-
 </head>
+
 <body>
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <div class="logo">🏠 Rumah_Kerja</div>
+    <div class="logo">RumahKerja</div>
     <div>
         <a href="<?= base_url('beranda') ?>">Beranda</a>
-        <a href="<?= base_url('cari') ?>">Cari</a>
-        <a href="<?= base_url('pesanan') ?>">Pesanan</a>
+        <a href="<?= base_url('tentang-kami') ?>">Tentang Kami</a>
     </div>
 </div>
 
-<!-- CONTENT -->
+<!-- CONTAINER -->
 <div class="container">
-
-    <!-- FORM ORDER -->
-    <div class="form-box">
-
-        <h2>Form Pemesanan</h2>
-
-        <form action="#" method="post">
-
-            <input type="text" name="nama" placeholder="Nama Pemesan">
-
-            <select name="kategori">
-                <option>Pilih Kategori Pekerja</option>
-                <option>ART</option>
-                <option>Tukang</option>
-                <option>Babysitter</option>
-                <option>Sopir</option>
-            </select>
-
-            <input type="text" name="lokasi" placeholder="Lokasi Pekerjaan">
-
-            <input type="date" name="tanggal">
-
-            <textarea name="catatan" placeholder="Catatan tambahan..."></textarea>
-
-            <button type="submit">Pesan Sekarang</button>
-
-        </form>
-
+    <div class="header-page">
+        <h2>Pesanan Anda</h2>
+        <p>Semua pesanan yang Anda buat akan muncul di bawah.</p>
     </div>
 
-    <!-- SUMMARY -->
-    <div class="summary">
-
-        <h3>Ringkasan Order</h3>
-
-        <div class="summary-item">Kategori: Tukang</div>
-        <div class="summary-item">Lokasi: Palu</div>
-        <div class="summary-item">Tanggal: 2026-06-06</div>
-
-        <div class="price">Rp 150.000</div>
-
+    <!-- jika pesanan kosong -->
+    <div class="empty-state">
+        <h3>Belum ada pesanan.</h3>
+        <p>Buka halaman Cari Pekerja Rumah dan buat pesanan Anda sekarang.</p>
+        <a href="<?= base_url('cari') ?>" class="btn">Ke Halaman Cari Pekerja Rumah</a>
     </div>
 
+    <!-- contoh order card (hilangkan atau loop data sesungguhnya dari DB) -->
+    <!--
+    <div class="order-card">
+        <h3>Nama Pekerja: Budi</h3>
+        <p>Kategori: Tukang Bangunan</p>
+        <p>Lokasi: Palu</p>
+        <p>Tanggal: 2026-06-06</p>
+        <a href="#" class="btn">Lihat Detail</a>
+    </div>
+    -->
 </div>
 
 </body>
