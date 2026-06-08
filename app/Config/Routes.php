@@ -41,3 +41,8 @@ $routes->get('/ulasan', 'Beranda::ulasan');
 $routes->get('/tentang-kami', 'Beranda::tentangKami');
 
 $routes->get('/logout', 'Auth::logout');
+
+
+// Detail Pekerja
+$routes->get('/cari', 'Pencarian::cari');
+$routes->get('/detail_pekerja/(:num)', 'Pencarian::detail/$1');

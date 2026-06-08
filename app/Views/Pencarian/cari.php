@@ -237,6 +237,8 @@ body{
     .search-box input{
         width:70%;
     }
+ 
+
 }
 </style>
 
@@ -263,6 +265,7 @@ body{
     </div>
 </div>
 
+
 <!-- RESULT -->
 <div class="result">
 
@@ -284,7 +287,7 @@ body{
                 <strong>KEAHLIAN</strong><br>
                 Tukang Bangunan • Renovasi • Plester • Pengecatan
             </p>
-            <a href="#" class="btn">Lihat Detail</a>
+            <a href="<?= base_url('detail_pekerja/1') ?>" class="btn">Lihat Detail</a>
         </div>
     </div>
 
@@ -306,7 +309,7 @@ body{
                 <strong>KEAHLIAN</strong><br>
                 ART Rumah Tangga • Bersih-bersih • Memasak
             </p>
-            <a href="#" class="btn">Lihat Detail</a>
+            <a href="<?= base_url('detail_pekerja/2') ?>" class="btn">Lihat Detail</a>
         </div>
     </div>
 
@@ -328,7 +331,7 @@ body{
                 <strong>KEAHLIAN</strong><br>
                 Sopir Pribadi • Antar Jemput • Luar Kota
             </p>
-            <a href="#" class="btn">Lihat Detail</a>
+            <a href="<?= base_url('detail_pekerja/3') ?>" class="btn">Lihat Detail</a>
         </div>
     </div>
 

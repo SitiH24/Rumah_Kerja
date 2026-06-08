@@ -143,11 +143,10 @@
     <div class="hero-left">
         <div class="badge">● PLATFORM PENCARIAN TUKANG</div>
 
-        <h1>Cari tukang terpercaya untuk proyek rumah Anda.</h1>
+        <h1>Jasa Tukang & Pekerja Rumah Lokal.</h1>
 
         <p>
-            Temukan tukang profesional untuk renovasi, pembangunan rumah,
-            perbaikan listrik, pipa, pengecatan, dan berbagai kebutuhan rumah lainnya.
+            Temukan pekerja untuk membantu kebutuhan anda 
         </p>
 
         <div class="hero-button">
