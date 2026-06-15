@@ -281,10 +281,10 @@ body{
     </div>
 
     <div class="menu">
-        <a href="#">Beranda</a>
-        <a href="#">Ulasan</a>
-        <a href="#">Tentang Kami</a>
-        <a href="#">Logout</a>
+        <a href="<?= base_url('beranda') ?>">Beranda</a>
+        <a href="<?= base_url('ulasan') ?>">Ulasan</a>
+        <a href="<?= base_url('tentang-kami') ?>">Tentang Kami</a>
+        <a href="<?= base_url('logout') ?> ">Logout</a>
     </div>
 
 </div>
@@ -486,7 +486,7 @@ body{
                 <p>Tukang Bangunan</p>
                 <div class="card-meta">📍 Jakarta Selatan • 5+ Tahun</div>
                 <div class="card-price">Rp200.000 / hari</div>
-                <a href="#" class="detail-btn">Lihat Detail</a>
+                <a href="<?= base_url('detail_pekerja/1') ?>" class="btn">Lihat Detail</a>
             </div>
         </div>
 
@@ -497,7 +497,7 @@ body{
                 <p>ART Rumah Tangga</p>
                 <div class="card-meta">📍 Palu • 4+ Tahun</div>
                 <div class="card-price">Rp150.000 / hari</div>
-                <a href="#" class="detail-btn">Lihat Detail</a>
+                <a href="<?= base_url('detail_pekerja/2') ?>" class="btn">Lihat Detail</a>
             </div>
         </div>
 
@@ -508,7 +508,7 @@ body{
                 <p>Sopir Pribadi</p>
                 <div class="card-meta">📍 Makassar • 10+ Tahun</div>
                 <div class="card-price">Rp180.000 / hari</div>
-                <a href="#" class="detail-btn">Lihat Detail</a>
+                <a href="<?= base_url('detail_pekerja/3') ?>" class="btn">Lihat Detail</a>
             </div>
         </div>
 
@@ -519,7 +519,7 @@ body{
                 <p>Babysitter</p>
                 <div class="card-meta">📍 Bandung • 3+ Tahun</div>
                 <div class="card-price">Rp170.000 / hari</div>
-                <a href="#" class="detail-btn">Lihat Detail</a>
+                <a href="<?= base_url('detail_pekerja/4') ?>" class="btn">Lihat Detail</a>
             </div>
         </div>
 

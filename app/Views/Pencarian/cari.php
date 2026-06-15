@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* RESET */
 *{
     margin:0;
     padding:0;
@@ -36,304 +35,321 @@ body{
 }
 
 .logo{
-    font-size:22px;
+    font-size:24px;
     font-weight:700;
     color:#8B5E3C;
 }
 
 .navbar a{
     text-decoration:none;
-    margin:0 12px;
+    margin-left:20px;
     color:#5b4636;
     font-weight:500;
 }
 
-/* SEARCH SECTION */
+/* HEADER */
 .search-section{
-    padding:130px 60px 30px;
+    padding:130px 60px 40px;
     text-align:center;
 }
 
 .search-section h1{
     font-size:40px;
     color:#3f2d20;
-    margin-bottom:10px;
 }
 
 .search-section p{
+    margin-top:10px;
     color:#6d5c4d;
-    font-size:16px;
+}
+
+/* FILTER BOX */
+.filter-box{
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    margin-top:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
 }
 
 .search-box{
     display:flex;
+    gap:20px;
+    flex-wrap:wrap;
     justify-content:center;
-    margin-top:20px;
 }
 
-.search-box input{
-    width:60%;
-    padding:15px;
+.search-item{
+    flex:1;
+    min-width:250px;
+    text-align:left;
+}
+
+.search-item label{
+    display:block;
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+    color:#5b4636;
+}
+
+.search-item select{
+    width:100%;
+    padding:14px;
     border:1px solid #ddd;
-    border-radius:30px 0 0 30px;
+    border-radius:10px;
     outline:none;
 }
 
-.search-box button{
-    padding:15px 25px;
-    border:none;
-    background:#A67C52;
-    color:#fff;
-    border-radius:0 30px 30px 0;
-    cursor:pointer;
-}
-
-/* FILTER */
-.filter{
-    display:flex;
-    justify-content:center;
-    gap:10px;
+.search-btn{
     margin-top:25px;
-    flex-wrap:wrap;
-}
-
-.filter button{
-    padding:10px 18px;
-    border:none;
-    border-radius:20px;
-    background:#fff;
-    border:1px solid #c7a17a;
-    color:#8B5E3C;
-    cursor:pointer;
-    font-weight:500;
-}
-
-.filter button:hover{
     background:#A67C52;
     color:#fff;
+    border:none;
+    padding:15px 30px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
 }
 
-/* RESULT DETAIL CARD */
+.search-btn:hover{
+    background:#8B5E3C;
+}
+
+/* RESULT */
 .result{
-    padding:40px 60px;
+    padding:20px 60px 50px;
     display:grid;
-    grid-template-columns:1fr;
-    gap:22px;
+    gap:20px;
 }
 
 .card{
     background:#fff;
     border-radius:18px;
-    overflow:hidden;
-    box-shadow:0 10px 25px rgba(0,0,0,0.06);
+    padding:20px;
     display:grid;
-    grid-template-columns:170px 1fr 230px;
-    align-items:center;
-    padding:22px;
-    gap:22px;
+    grid-template-columns:170px 1fr 250px;
+    gap:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
 }
 
 .card img{
     width:150px;
     height:150px;
     object-fit:cover;
-    border-radius:16px;
+    border-radius:15px;
 }
 
 .status{
-    display:inline-block;
     background:#000;
     color:#fff;
-    font-size:11px;
-    font-weight:700;
-    padding:5px 12px;
+    padding:5px 10px;
     border-radius:20px;
-    margin-bottom:10px;
-}
-
-.card-body h3{
-    color:#3f2d20;
-    font-size:26px;
-    margin-bottom:8px;
-}
-
-.card-body p{
-    color:#6d5c4d;
-    font-size:15px;
-    margin-top:6px;
+    font-size:11px;
 }
 
 .rating{
-    color:#111;
-    font-size:14px;
-    font-weight:600;
-    margin-left:8px;
+    margin-left:10px;
+}
+
+.card-body h3{
+    margin-top:10px;
+    color:#3f2d20;
+}
+
+.card-body p{
+    color:#666;
+    margin-top:8px;
 }
 
 .card-price{
-    height:100%;
     border-left:1px solid #eee;
-    padding-left:24px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    padding-left:20px;
 }
 
 .card-price span{
+    color:#999;
     font-size:12px;
-    color:#9a8f87;
-    font-weight:700;
-    letter-spacing:1px;
 }
 
 .card-price h4{
-    font-size:26px;
-    color:#111827;
-    margin:8px 0 18px;
+    margin:10px 0;
 }
 
-.card-price p{
-    font-size:13px;
-    color:#6d5c4d;
-    line-height:1.6;
-}
-
-.card-price .btn{
+.btn{
     display:inline-block;
-    width:max-content;
-    margin-top:14px;
-    padding:10px 18px;
+    margin-top:15px;
     background:#A67C52;
     color:#fff;
-    border-radius:20px;
     text-decoration:none;
-    font-size:13px;
-    font-weight:600;
+    padding:10px 20px;
+    border-radius:20px;
 }
 
-/* RESPONSIVE */
 @media(max-width:900px){
+
+    .navbar{
+        padding:20px;
+    }
+
+    .search-section{
+        padding:120px 20px 30px;
+    }
+
     .result{
-        padding:30px 20px;
+        padding:20px;
     }
 
     .card{
         grid-template-columns:1fr;
-        text-align:left;
     }
 
     .card img{
         width:100%;
-        height:230px;
+        height:250px;
     }
 
     .card-price{
         border-left:none;
         border-top:1px solid #eee;
+        padding-top:20px;
         padding-left:0;
-        padding-top:18px;
     }
-
-    .search-box input{
-        width:70%;
-    }
- 
-
 }
 </style>
-
 </head>
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
     <div class="logo">RumahKerja</div>
+
     <div>
         <a href="<?= base_url('beranda') ?>">Beranda</a>
-        <a href="<?= base_url('pesanan') ?>">Pesanan Anda</a>
+        <a href="<?= base_url('pesanan') ?>">Pesanan</a>
         <a href="<?= base_url('tentang-kami') ?>">Tentang Kami</a>
     </div>
 </div>
 
-<!-- SEARCH -->
 <div class="search-section">
+
     <h1>Cari Pekerja Rumah</h1>
     <p>Temukan pekerja terbaik sesuai kebutuhan Anda</p>
-    <div class="search-box">
-        <input type="text" placeholder="Cari tukang, ART, babysitter...">
-        <button>Cari</button>
-    </div>
+
+    <form action="<?= base_url('cari') ?>" method="GET" class="filter-box">
+
+        <div class="search-box">
+
+            <div class="search-item">
+                <label>Lokasi</label>
+                <select name="lokasi">
+                    <option value="">Semua Lokasi</option>
+                    <option value="Besusu Barat">Besusu Barat</option>
+                    <option value="Besusu Tengah">Besusu Tengah</option>
+                    <option value="Lolu Selatan">Lolu Selatan</option>
+                    <option value="Tondo">Tondo</option>
+                    <option value="Talise">Talise</option>
+                    <option value="Birobuli Selatan">Birobuli Selatan</option>
+                    <option value="Petobo">Petobo</option>
+                </select>
+            </div>
+
+            <div class="search-item">
+                <label>Keahlian</label>
+                <select name="keahlian">
+                    <option value="">Semua Keahlian</option>
+                    <option value="ART">ART</option>
+                    <option value="Babysitter">Babysitter</option>
+                    <option value="Sopir">Sopir</option>
+                    <option value="Tukang Bangunan">Tukang Bangunan</option>
+                    <option value="Tukang Listrik">Tukang Listrik</option>
+                    <option value="Cleaning Service">Cleaning Service</option>
+                </select>
+            </div>
+
+            <div class="search-item">
+                <label>Harga / Hari</label>
+                <select name="harga">
+                    <option value="">Semua Harga</option>
+                    <option value="50000">< Rp50.000</option>
+                    <option value="100000">Rp50.000 - Rp100.000</option>
+                    <option value="200000">Rp100.000 - Rp200.000</option>
+                    <option value="300000">Rp200.000 - Rp300.000</option>
+                    <option value="1000000">> Rp1.000.000</option>
+                </select>
+            </div>
+
+        </div>
+
+        <button type="submit" class="search-btn">
+            Cari Pekerja Sekarang
+        </button>
+
+    </form>
+
 </div>
 
-
-<!-- RESULT -->
 <div class="result">
 
-    <div class="card">
-        <img src="<?= base_url('assets/images/bangunan.jpeg') ?>">
-        <div class="card-body">
-            <div>
-                <span class="status">TERSEDIA</span>
-                <span class="rating">★ 5.0 (1 ulasan)</span>
-            </div>
-            <h3>Budi</h3>
-            <p>📍 Jakarta Selatan • Usia 34 • 5+ Tahun Pengalaman • 4 Kali Dilihat</p>
-            <p>Terdaftar Mar 2026</p>
-        </div>
-        <div class="card-price">
-            <span>MULAI DARI</span>
-            <h4>Rp200 rb/hari</h4>
-            <p>
-                <strong>KEAHLIAN</strong><br>
-                Tukang Bangunan • Renovasi • Plester • Pengecatan
-            </p>
-            <a href="<?= base_url('detail_pekerja/1') ?>" class="btn">Lihat Detail</a>
-        </div>
-    </div>
+    <?php if(!empty($pekerja)): ?>
 
-    <div class="card">
-        <img src="<?= base_url('assets/images/ART.jpeg') ?>">
-        <div class="card-body">
-            <div>
-                <span class="status">TERSEDIA</span>
-                <span class="rating">★ 4.8 (3 ulasan)</span>
-            </div>
-            <h3>Lala</h3>
-            <p>📍 Palu • Usia 29 • 4+ Tahun Pengalaman • 6 Kali Dilihat</p>
-            <p>Terdaftar Apr 2026</p>
-        </div>
-        <div class="card-price">
-            <span>MULAI DARI</span>
-            <h4>Rp150 rb/hari</h4>
-            <p>
-                <strong>KEAHLIAN</strong><br>
-                ART Rumah Tangga • Bersih-bersih • Memasak
-            </p>
-            <a href="<?= base_url('detail_pekerja/2') ?>" class="btn">Lihat Detail</a>
-        </div>
-    </div>
+        <?php foreach($pekerja as $p): ?>
 
-    <div class="card">
-        <img src="<?= base_url('assets/images/sopir.jpeg') ?>">
-        <div class="card-body">
-            <div>
+        <div class="card">
+
+            <img src="<?= base_url('assets/images/'.$p['foto']) ?>">
+
+            <div class="card-body">
+
                 <span class="status">TERSEDIA</span>
-                <span class="rating">★ 4.9 (2 ulasan)</span>
+
+                <span class="rating">
+                    ★ <?= $p['rating'] ?>
+                </span>
+
+                <h3><?= $p['nama'] ?></h3>
+
+                <p>
+                    📍 <?= $p['lokasi'] ?>
+                    • Usia <?= $p['usia'] ?>
+                </p>
+
+                <p>
+                    <?= $p['pengalaman'] ?> Tahun Pengalaman
+                </p>
+
             </div>
-            <h3>Andi</h3>
-            <p>📍 Makassar • Usia 38 • 10+ Tahun Pengalaman • 8 Kali Dilihat</p>
-            <p>Terdaftar Mei 2026</p>
+
+            <div class="card-price">
+
+                <span>MULAI DARI</span>
+
+                <h4>
+                    Rp<?= number_format($p['harga'],0,',','.') ?>/hari
+                </h4>
+
+                <p>
+                    <strong>KEAHLIAN</strong><br>
+                    <?= $p['keahlian'] ?>
+                </p>
+
+                <a href="<?= base_url('detail_pekerja/'.$p['id']) ?>" class="btn">
+                    Lihat Detail
+                </a>
+
+            </div>
+
         </div>
-        <div class="card-price">
-            <span>MULAI DARI</span>
-            <h4>Rp180 rb/hari</h4>
-            <p>
-                <strong>KEAHLIAN</strong><br>
-                Sopir Pribadi • Antar Jemput • Luar Kota
-            </p>
-            <a href="<?= base_url('detail_pekerja/3') ?>" class="btn">Lihat Detail</a>
-        </div>
-    </div>
+
+        <?php endforeach; ?>
+
+    <?php else: ?>
+
+        <h3 style="text-align:center">
+            Tidak ada pekerja yang sesuai dengan filter pencarian.
+        </h3>
+
+    <?php endif; ?>
 
 </div>
 

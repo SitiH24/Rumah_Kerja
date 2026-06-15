@@ -22,7 +22,8 @@ $routes->get('/login', 'Auth::login');
 $routes->post('/login', 'Auth::prosesLogin');
 
 $routes->get('/register', 'Auth::register');
-$routes->post('/register', 'Auth::prosesRegister');
+$routes->post('/register', 'Auth::store');
+// $routes->post('/register', 'Auth::prosesRegister');
 
 $routes->get('/logout', 'Auth::logout');
 
@@ -46,3 +47,5 @@ $routes->get('/logout', 'Auth::logout');
 // Detail Pekerja
 $routes->get('/cari', 'Pencarian::cari');
 $routes->get('/detail_pekerja/(:num)', 'Pencarian::detail/$1');
+
+$routes->get('/pekerja', 'Beranda::pekerja');

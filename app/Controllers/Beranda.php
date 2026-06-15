@@ -47,4 +47,10 @@ class Beranda extends BaseController
     // Redirect ke halaman logout dengan tampilan
     return view('Beranda/logout');
 }
+ public function pekerja()
+    {
+    return view('Beranda/pekerja');
+    }
 }
+
+   

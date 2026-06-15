@@ -304,7 +304,8 @@
                     <label>Daftar Sebagai</label>
                     <select name="role" required>
                         <option value="">Pilih role</option>
-                        <option value="user">Pencari Jasa</option>
+                        <option value="admin">Admin</option>
+                        <option value="pelanggan">Pencari Jasa</option>
                         <option value="pekerja">Pekerja/Tukang</option>
                     </select>
                 </div>
